@@ -53,8 +53,8 @@ def run():
             return False
         elif event == "Pass":
             print('yahallo')
-            window.close()
-            return True
+            # window.close()
+            break
         
     
     return True
