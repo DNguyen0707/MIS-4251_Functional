@@ -8,7 +8,7 @@ pip install -r requirements.txt
 
 
 ### How to run
-Double click on 727-4251 Funct Test.py to run
+Double click on `727-4251 Funct Test.py` to run
 
 
 ### Future Update?

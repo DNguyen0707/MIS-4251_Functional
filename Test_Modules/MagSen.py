@@ -11,12 +11,12 @@ def run():
     sg.set_options(font=('Arial Bold', 14))
     
     picture = [
-        [sg.Image(filename = 'Resources/Step3.png', key='IMAGE1')],
+        [sg.Image(filename = 'Resources/Step4.png', key='IMAGE1')],
         [sg.Text(size=(10, 1))]
     ]
     
     instruction = [
-        
+        [sg.Text('Step 4.3 All magnetic sensors are communicating, reporting (green) on Gate Setup page.')]
     ]
     
     layout = [
@@ -25,7 +25,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 4', layout, size=(800,300), enable_close_attempted_event=True)
+    window = sg.Window('Test 4', layout, size=(900,500), enable_close_attempted_event=True)
     
     
     while True:

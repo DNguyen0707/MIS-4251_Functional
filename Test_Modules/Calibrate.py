@@ -11,12 +11,17 @@ def run():
     sg.set_options(font=('Arial Bold', 14))
     
     picture = [
-        [sg.Image(filename = 'Resources/Step3.png', key='IMAGE1')],
+        [sg.Image(filename = 'Resources/Step5.png', key='IMAGE1')],
         [sg.Text(size=(10, 1))]
     ]
     
     instruction = [
-        
+        [sg.Text('Calibration Requirement:')],
+        [sg.Text('1. Make sure no one is around, nor any vehicle nearby')],
+        [sg.Text('2. Make sure the inventory machine is not running')],
+        [sg.Text('3. Do not move the test fixture or the bollard while calibration')],
+        [sg.Text(size=(10, 1))],
+        [sg.Text('Step 5.5 Calibration finished successfully')]
     ]
     
     layout = [
@@ -25,7 +30,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 4', layout, size=(800,300), enable_close_attempted_event=True)
+    window = sg.Window('Test 4', layout, size=(800,700), enable_close_attempted_event=True)
     
     
     while True:
