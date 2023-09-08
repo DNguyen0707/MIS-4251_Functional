@@ -40,7 +40,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 1', layout, size=(900,700), enable_close_attempted_event=True)
+    window = sg.Window('Test 1', layout, size=(1000,700), enable_close_attempted_event=True)
     
     while True:
         event, values = window.read()
@@ -53,7 +53,7 @@ def run():
             return False
         elif event == "Pass":
             print('yahallo')
-            # window.close()
+            window.close()
             break
         
     

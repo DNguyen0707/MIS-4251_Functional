@@ -22,21 +22,22 @@ sg.set_options(font=('Arial Bold', 14))
 
 image_viewer_column = [
     [sg.Image(key="-IMAGE-")],
-    [sg.Text('Pre-Test Result: ', size=(22, 1)), sg.Text(key='PT')],
-    [sg.Text('Test Step 1 Result: ', size=(22, 1)), sg.Text(key='T1')],
-    [sg.Text('Test Step 2 Result: ', size=(22, 1)), sg.Text(key='T2')],
-    [sg.Text('Test Step 4 Result: ', size=(22, 1)), sg.Text(key='T4')],
-    [sg.Text('Test Step 5 Result: ', size=(22, 1)), sg.Text(key='T5')],
-    [sg.Text('Test Step 6 Result: ', size=(22, 1)), sg.Text(key='T6')],
-    [sg.Text('Test Step 7 Result: ', size=(22, 1)), sg.Text(key='T7')],
-    [sg.Text('Test Step 8 Result: ', size=(22, 1)), sg.Text(key='T8')],
-    [sg.Text('Test Step 9 Result: ', size=(22, 1)), sg.Text(key='T9')],
-    [sg.Text('Test Step 10 Result: ', size=(22, 1)), sg.Text(key='T10')],
-    [sg.Text('Test Step 11 Result: ', size=(22, 1)), sg.Text(key='T11')],
-    [sg.Text('Test Step 12 Result: ', size=(22, 1)), sg.Text(key='T12')],
-    [sg.Text('Test Step 13 Result: ', size=(22, 1)), sg.Text(key='T13')],
-    [sg.Text('Test Step 14 Result: ', size=(22, 1)), sg.Text(key='T14')],
-    [sg.Text('Final Test Result: ', size=(22, 1)), sg.Text(key='FR')]
+    [sg.Text('Pre-Test Result: ', size=(22, 1)), sg.Text(key='T0')],        #Pre-Test
+    [sg.Text('Test Step 1 Result: ', size=(22, 1)), sg.Text(key='T1')],     #Power On
+    [sg.Text('Test Step 2 Result: ', size=(22, 1)), sg.Text(key='T2')],     #Connectivity
+    [sg.Text('Test Step 2 Result: ', size=(22, 1)), sg.Text(key='T3')],     #SysFunc
+    [sg.Text('Test Step 4 Result: ', size=(22, 1)), sg.Text(key='T4')],     #MagSen
+    [sg.Text('Test Step 5 Result: ', size=(22, 1)), sg.Text(key='T5')],     #Calibrate
+    [sg.Text('Test Step 6 Result: ', size=(22, 1)), sg.Text(key='T6')],     #Set Overlay
+    [sg.Text('Test Step 7 Result: ', size=(22, 1)), sg.Text(key='T7')],     #Tripwire
+    [sg.Text('Test Step 8 Result: ', size=(22, 1)), sg.Text(key='T8')],     #Tamper Switch
+    [sg.Text('Test Step 9 Result: ', size=(22, 1)), sg.Text(key='T9')],     #MAG coil
+    [sg.Text('Test Step 10 Result: ', size=(22, 1)), sg.Text(key='T10')],   #Walk Setup
+    [sg.Text('Test Step 11 Result: ', size=(22, 1)), sg.Text(key='T11')],   #Control Walk
+    [sg.Text('Test Step 12 Result: ', size=(22, 1)), sg.Text(key='T12')],   #Magnet Walk
+    [sg.Text('Test Step 13 Result: ', size=(22, 1)), sg.Text(key='T13')],   #Object Location
+    [sg.Text('Test Step 14 Result: ', size=(22, 1)), sg.Text(key='T14')],   #Data Cleanup
+    [sg.Text('Final Test Result: ', size=(22, 1)), sg.Text(key='T15')]      #Post-Test
 ]
 
 functional_step_column = [
@@ -99,30 +100,182 @@ while True:
             
             #Test begin
             
-            #Pre-test
+            #0 Pre-test - Done
             import PreTest
-            Test1Result = PreTest.run()
+            Test0Result = PreTest.run()
             
-            if Test1Result:
-                window['PT'].update('Pass')
+            if Test0Result:
+                window['T0'].update('Pass')
             else:
                 #fail
                 sg.popup_ok("Functional Test Failed")
                 break
             
             
-            #Power On
+            #1 Power On - Done
             import PowerOn
-            Test2Result = PowerOn.run()
+            Test1Result = PowerOn.run()
             
-            if Test2Result:
+            if Test1Result:
                 window['T1'].update('Pass')
             else:
                 #fail
                 sg.popup_ok("Functional Test Failed")
                 break
             
-            #Connectivity
+            #2 Connectivity - Done
+            import Connectivity
+            Test2Result = Connectivity.run()
+            
+            if Test2Result:
+                window['T2'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #3 SysFunc - Done
+            import SysFunc
+            Test2Result = SysFunc.run()
+            
+            if Test2Result:
+                window['T3'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
             
             
-#window.close()
+            #4 MagSen - 
+            import MagSen 
+            Test2Result = MagSen.run()
+            
+            if Test2Result:
+                window['T4'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #5 Calibrate
+            import Calibrate
+            Test2Result = Calibrate.run()
+            
+            if Test2Result:
+                window['T5'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #6 Set Overlay
+            import SetOverlay
+            Test2Result = SetOverlay.run()
+            
+            if Test2Result:
+                window['T6'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #7 Tripwire
+            import Tripwire
+            Test2Result = Tripwire.run()
+            
+            if Test2Result:
+                window['T7'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #8 Tamper Switch
+            import TamperSwitch
+            Test2Result = TamperSwitch.run()
+            
+            if Test2Result:
+                window['T8'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #9 MAG Coil
+            import MAGCoil
+            Test2Result = MAGCoil.run()
+            
+            if Test2Result:
+                window['T9'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #10 Walk Setup
+            import WalkSetup
+            Test2Result = WalkSetup.run()
+            
+            if Test2Result:
+                window['T10'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #11 Control Walk
+            import ControlWalk
+            Test2Result = ControlWalk.run()
+            
+            if Test2Result:
+                window['T11'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #12 Magnet Walk
+            import MagnetWalk
+            Test2Result = MagnetWalk.run()
+            
+            if Test2Result:
+                window['T12'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #13 Object Location
+            import ObjectLocation
+            Test2Result = ObjectLocation.run()
+            
+            if Test2Result:
+                window['T13'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #14 Data Cleanup
+            import DataCleanup
+            Test2Result = DataCleanup.run()
+            
+            if Test2Result:
+                window['T14'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            #15 Post-test
+            import PostTest
+            Test2Result = PostTest.run()
+            
+            if Test2Result:
+                window['T15'].update('Pass')
+            else:
+                #fail
+                sg.popup_ok("Functional Test Failed")
+                break
+            
+            
