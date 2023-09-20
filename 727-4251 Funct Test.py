@@ -66,7 +66,7 @@ layout = [
 ]
 
 # Create Window
-window = sg.Window("727-4251 Final Functional Test", layout, size=(900, 520), enable_close_attempted_event=True)
+window = sg.Window("727-4251 Final Functional Test", layout, size=(900, 600), enable_close_attempted_event=True)
 
 # Selection Button
 while True:
@@ -146,7 +146,7 @@ while True:
                 break
             
             
-            #4 MagSen - 
+            #4 MagSen - Done
             import MagSen 
             Test2Result = MagSen.run()
             
@@ -157,7 +157,7 @@ while True:
                 sg.popup_ok("Functional Test Failed")
                 break
             
-            #5 Calibrate
+            #5 Calibrate - Done
             import Calibrate
             Test2Result = Calibrate.run()
             
@@ -168,7 +168,7 @@ while True:
                 sg.popup_ok("Functional Test Failed")
                 break
             
-            #6 Set Overlay
+            #6 Set Overlay - Done
             import SetOverlay
             Test2Result = SetOverlay.run()
             
@@ -179,7 +179,7 @@ while True:
                 sg.popup_ok("Functional Test Failed")
                 break
             
-            #7 Tripwire
+            #7 Tripwire - Done
             import Tripwire
             Test2Result = Tripwire.run()
             
@@ -190,7 +190,7 @@ while True:
                 sg.popup_ok("Functional Test Failed")
                 break
             
-            #8 Tamper Switch
+            #8 Tamper Switch - Done
             import TamperSwitch
             Test2Result = TamperSwitch.run()
             
@@ -201,9 +201,9 @@ while True:
                 sg.popup_ok("Functional Test Failed")
                 break
             
-            #9 MAG Coil
+            #9 MAG Coil - Semi-Done, need to add proper directory
             import MAGCoil
-            Test2Result = MAGCoil.run()
+            Test2Result = MAGCoil.run(BollardSN)
             
             if Test2Result:
                 window['T9'].update('Pass')
@@ -212,7 +212,7 @@ while True:
                 sg.popup_ok("Functional Test Failed")
                 break
             
-            #10 Walk Setup
+            #10 Walk Setup - 
             import WalkSetup
             Test2Result = WalkSetup.run()
             

@@ -11,12 +11,14 @@ def run():
     sg.set_options(font=('Arial Bold', 14))
     
     picture = [
-        [sg.Image(filename = 'Resources/Step3.png', key='IMAGE1')],
+        [sg.Image(filename = 'Resources/Step8.png', key='IMAGE1')],
         [sg.Text(size=(10, 1))]
     ]
     
     instruction = [
-        
+        [sg.Text('Step 8.3: Verify that at least one "orange border" tamper alert for the Right/Primary Bollard')],
+        [sg.Text('Step 8.4: Verify that at lease one "orange border" tamper alert for the Left/Secondary Bollard')],
+        [sg.Text('You can also check this right after you log in from step 3')]
     ]
     
     layout = [
@@ -25,7 +27,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 4', layout, size=(800,300), enable_close_attempted_event=True)
+    window = sg.Window('Test 8', layout, size=(900,500), enable_close_attempted_event=True)
     
     
     while True:
