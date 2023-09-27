@@ -70,11 +70,8 @@ def run(BollardSN = '####-####'):
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
         elif event == "Continue":
-           if values["ObjectWalk"] < 9:
-                return False
-           else:
-                window.close()
-                break
+            window.close()
+            break
             
         match event:
             case "logName":
@@ -91,7 +88,7 @@ def run(BollardSN = '####-####'):
                 pyperclip.copy(logNotes)
                 
         
-    return True
+    return values["ObjectWalk"]
 
 if __name__ == "__main__":
     print("Debug Mode")

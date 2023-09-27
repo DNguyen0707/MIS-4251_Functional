@@ -41,13 +41,10 @@ def run():
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
         elif event == "Continue":
-            if values["ControlWalk"] > 1 and values["MagnetWalk"] < 9:
-                return False
-            else:
-                window.close()
-                break
+            window.close()
+            break
     
-    return True
+    return values["ControlWalk"], values["MagnetWalk"]
 
 if __name__ == "__main__":
     print("Debug Mode")

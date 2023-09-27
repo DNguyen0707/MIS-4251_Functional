@@ -36,12 +36,11 @@ image_viewer_column = [
     [
         sg.Text("Test Step 11 Result: ", size=(22, 1)),
         sg.Text(key="T11"),
-    ],  # Control Walk
-    [sg.Text("Test Step 12 Result: ", size=(22, 1)), sg.Text(key="T12")],  # Magnet Walk
+    ],  # Walking Test
     [
         sg.Text("Test Step 13 Result: ", size=(22, 1)),
         sg.Text(key="T13"),
-    ],  # Object Location
+    ],  # Object Locator
     [
         sg.Text("Test Step 14 Result: ", size=(22, 1)),
         sg.Text(key="T14"),
@@ -264,7 +263,10 @@ while True:
 
         Test11Result = WalkingTest.run()
 
-        if Test11Result:
+        controlWalk = Test11Result[0]
+        magnetwalk = Test11Result[1]
+
+        if controlWalk <= 1 and magnetwalk >= 9:
             window["T11"].update("Pass")
         else:
             # fail
@@ -275,8 +277,9 @@ while True:
         import ObjectLocation
 
         Test13Result = ObjectLocation.run(BollardSN)
+        objectWalk = Test13Result[0]
 
-        if Test13Result:
+        if objectWalk >= 9:
             window["T13"].update("Pass")
         else:
             # fail
@@ -298,7 +301,17 @@ while True:
         # 15 Post-test
         import PostTest
 
-        Test15Result = PostTest.run(systemSN, carrierSN, leftBollard, rightBollard, operator, date, controlWalk, magnetwalk, objectWalk)
+        Test15Result = PostTest.run(
+            BollardSN,
+            CarrierSN,
+            lBollardSN,
+            rBollardSN,
+            values["OP"],
+            date,
+            controlWalk,
+            magnetwalk,
+            objectWalk,
+        )
         if Test15Result:
             window["T15"].update("Pass")
         else:
