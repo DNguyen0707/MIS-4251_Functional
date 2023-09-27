@@ -11,8 +11,11 @@ def run():
     sg.set_options(font=('Arial Bold', 14))
     
     picture = [
-        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step11.png', key='IMAGE1')],
-        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step12.png', key='IMAGE2')],
+        ##[sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step11.png', key='IMAGE1')],
+        ##[sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step12.png', key='IMAGE2')],
+        
+        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step11.png', key='IMAGE1'),
+         sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step12.png', key='IMAGE2')],
         [sg.Text(size=(10, 1))]
     ]
     
@@ -30,7 +33,7 @@ def run():
         [sg.Button("Continue"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 11', layout, size=(800,300), enable_close_attempted_event=True)
+    window = sg.Window('Test 11', layout, size=(1550,750), enable_close_attempted_event=True)
     
     
     while True:

@@ -12,27 +12,22 @@ def run(BollardSN = '####-####'):
     sg.set_options(font=('Arial Bold', 14))
     
     #Set Logging Info
-    logName = datetime.now().strftime("%m.%d.%y") + "_object_location_Walk_" + BollardSN
+    logName = datetime.now().strftime("%Y.%m.%d") + "_object_location_Walk_" + BollardSN
     systemNumber = BollardSN
-    testNumber =datetime.now().strftime("%y%d%m%H%M%S")
+    testNumber =datetime.now().strftime("%Y%m%d%H%M")
     location = "2"
     numberOfPasses = "10"
     logNotes = "Qualitel"
     
-    picture = [
-        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step13-1.png', key='IMAGE1'), sg.Image(filename = 'Resources/Step13-2.png', key='IMAGE2')],
-        [sg.Text(size=(10, 1))]
+    picture1 = [
+        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step13-1.png', key='IMAGE1')],
     ]
     
-    instruction = [
+    instruction1 = [
         [sg.Text('Fill out data logging function using the information provided below and click "Save Settings"')],
-        [sg.Text('Perform Objection Location Walk-test passing through RONIN system (expect 9 or higher). Enter the number to the box below')],
-        [sg.InputText(size=(20,1), key="ObjectWalk")],
-        [sg.Text('Verify the alerts generated a circle drawn on the images on those alerts for each walk.')],
-        [sg.Text('Be sure to download all of the nessessary files as shown in the image above.')],
     ]
     
-    logging = [
+    logging1 = [
         [sg.Text('Log Name: ')],
         [sg.InputText(logName, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="logName")],
         
@@ -40,37 +35,45 @@ def run(BollardSN = '####-####'):
         [sg.InputText(systemNumber, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="systemNumber")],
         
         [sg.Text('Test Number: ')],
-        [sg.InputText(testNumber, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="testNumber")]
+        [sg.InputText(testNumber, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="testNumber")],
         
         [sg.Text('Location: ')],
-        [sg.InputText(location, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="location")]
+        [sg.InputText(location, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="location")],
         
         [sg.Text('Number of Passes: ')],
-        [sg.InputText(numberOfPasses, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="numberOfPasses")]
+        [sg.InputText(numberOfPasses, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="numberOfPasses")],
         
         [sg.Text('Log Notes:')],
         [sg.InputText(logNotes, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="logNotes")]
     ]
     
-    layout = [
-        [sg.Column(picture)],
-        [sg.Column(instruction)],
-        [sg.Column(logging)],
-        [sg.Button("Continue"), sg.Exit()]
+    button1 = [
+        [sg.Button("Continue"), sg.Exit()],
+        ##[sg.Exit()]
     ]
     
-    window = sg.Window('Test 13', layout, size=(800,300), enable_close_attempted_event=True)
+    empty = [
+        [sg.Text(size=(10, 1))]
+    ]
+    
+    layout1 = [
+        [sg.Column(picture1)],
+        [sg.Column(instruction1)],
+        [sg.Column(logging1), sg.Column(empty), sg.Column(button1)]
+    ]
+    
+    window1 = sg.Window('Test 13', layout1, size=(900,1050), enable_close_attempted_event=True)
     
     
     while True:
-        event, values = window.read()
+        event, values = window1.read()
         
         if event == sg.WIN_CLOSED or event == 'Exit':
             return False
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
         elif event == "Continue":
-            window.close()
+            window1.close()
             break
             
         match event:
@@ -87,7 +90,40 @@ def run(BollardSN = '####-####'):
             case "logNotes":
                 pyperclip.copy(logNotes)
                 
+    
+    
+    #second section
+    picture2 = [
+        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step13-2.png', key='IMAGE2')],
+    ]
+    
+    instruction2 = [
+        [sg.Text('Perform Objection Location Walk-test passing through RONIN system (expect 9 or higher).\nEnter the number to the box below')],
+        [sg.InputText(size=(20,1), key="ObjectWalk")],
+        [sg.Text('Verify the alerts generated a circle drawn on the images on those alerts for each walk.')],
+        [sg.Text('Be sure to download all of the nessessary files as shown in the image above.')],
+    ]
+    
+    layout2 = [
+        [sg.Column(picture2)],
+        [sg.Column(instruction2)],
+        [sg.Button("Continue"), sg.Exit()]
+    ]
+    
+    window2 = sg.Window('Test 13', layout2, size=(900,1050), enable_close_attempted_event=True)
+    
+    while True:
+        event, values = window2.read()
         
+        if event == sg.WIN_CLOSED or event == 'Exit':
+            return False
+        elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
+            return False
+        elif event == "Continue":
+            window2.close()
+            break
+                
+    
     return values["ObjectWalk"]
 
 if __name__ == "__main__":

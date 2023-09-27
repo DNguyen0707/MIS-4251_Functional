@@ -70,7 +70,7 @@ def run(systemSN, carrierSN, leftBollard, rightBollard, operator, date, controlW
     
     #save excel file
     wb.save(systemSN + " Datasheet.xlsx")
-    src_folder = r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\Final Test\pythonProject\\"
+    src_folder = r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\MIS-4251_Func_Test\\"
     src1_folder = r"C:\Users\qtest1\Downloads\Download\\"
     src2_folder = r"Z:\05. Manufacturing\20. Test\400 records\Test Records\727\727-4251\\"
     dst_folder = r"Z:\05. Manufacturing\20. Test\400 records\Test Records\727\727-4251\Bollard " + systemSN + "\\"

@@ -18,7 +18,7 @@ def run():
         [sg.Exit()]
     ]
     
-    window = sg.Window('Pre-test', layout, size=(900,950), enable_close_attempted_event=True)
+    window = sg.Window('Pre-test', layout, size=(880,950), enable_close_attempted_event=True)
     
     while True:
         event, values = window.read()

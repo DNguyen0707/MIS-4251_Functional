@@ -16,12 +16,12 @@ def run():
     ]
     
     instruction = [
-        [sg.Text('Go to Operator->Alarm History and click "Clear All Alarms and Reset Tripwire Count. Type "Qualitel" in the popup and press Enter')],
-        [sg.Text('Verify Detection Threshold is set to Small (500).')],
-        [sg.Text('Verify Ethernet IP setting are set to DHCP and not Static.')],
-        [sg.Text('Verify Wi-Fi IP setting are set to DHCP (not Static), or not connected.')],
-        [sg.Text('Scroll down on the Sysadmin page and click "SHUTDOWN"')],
-        [sg.Text('Disassemble everything')]
+        [sg.Text('1. Go to Operator->Alarm History and click "Clear All Alarms and Reset Tripwire Count.\n     Type "Qualitel" in the popup and press Enter')],
+        [sg.Text('2. Verify Detection Threshold is set to Small (500).')],
+        [sg.Text('3. Verify Ethernet IP setting are set to DHCP and not Static.')],
+        [sg.Text('4. Verify Wi-Fi IP setting are set to DHCP (not Static), or not connected.')],
+        [sg.Text('5. Scroll down on the Sysadmin page and click "SHUTDOWN"')],
+        [sg.Text('6. Disassemble everything')]
     ]
     
     layout = [
@@ -30,7 +30,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 4', layout, size=(800,300), enable_close_attempted_event=True)
+    window = sg.Window('Test 4', layout, size=(850,800), enable_close_attempted_event=True)
     
     
     while True:

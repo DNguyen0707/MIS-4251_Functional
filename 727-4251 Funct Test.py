@@ -87,7 +87,7 @@ layout = [
 window = sg.Window(
     "727-4251 Final Functional Test",
     layout,
-    size=(900, 600),
+    size=(900, 550),
     enable_close_attempted_event=True,
 )
 
