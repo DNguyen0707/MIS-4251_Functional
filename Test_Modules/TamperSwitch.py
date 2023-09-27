@@ -11,7 +11,7 @@ def run():
     sg.set_options(font=('Arial Bold', 14))
     
     picture = [
-        [sg.Image(filename = 'Resources/Step8.png', key='IMAGE1')],
+        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step8.png', key='IMAGE1')],
         [sg.Text(size=(10, 1))]
     ]
     

@@ -20,7 +20,7 @@ def run(BollardSN = '####-####'):
     logNotes = "Qualitel"
     
     picture = [
-        [sg.Image(filename = 'Resources/Step13-1.png', key='IMAGE1'), sg.Image(filename = 'Resources/Step13-2.png', key='IMAGE2')],
+        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step13-1.png', key='IMAGE1'), sg.Image(filename = 'Resources/Step13-2.png', key='IMAGE2')],
         [sg.Text(size=(10, 1))]
     ]
     

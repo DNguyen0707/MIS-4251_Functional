@@ -5,20 +5,21 @@ import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
 import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
+import pyperclip
 
 def run():
     #Set font
     sg.set_options(font=('Arial Bold', 14))
     
     picture = [
-    [sg.Image(filename = 'Resources/Step3.png', key='IMAGE1')],
+    [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step3.png', key='IMAGE1')],
     [sg.Text(size=(10, 1))]
     ]
     
     instruction = [
         [sg.Text('Login using the username and password below')],
-        [sg.Text('Username: '), sg.InputText('fsr', size=(20,1), use_readonly_for_disable=True, disabled=True)],
-        [sg.Text('Passwords: '), sg.InputText('magnet0meter1', size=(20,1), use_readonly_for_disable=True, disabled=True)]
+        [sg.Text('Username: '), sg.InputText('fsr', size=(20,1), use_readonly_for_disable=True, disabled=True),sg.Button("Copy", key="user")],
+        [sg.Text('Passwords: '), sg.InputText('magnet0meter1', size=(20,1), use_readonly_for_disable=True, disabled=True),sg.Button("Copy", key="pass")]
     ]
     
     layout = [
@@ -42,6 +43,12 @@ def run():
             print('yahallo')
             window.close()
             break
+        
+        match event:
+            case "user":
+                pyperclip.copy("fsr")
+            case "pass":
+                pyperclip.copy("magnet0meter1")
     
     
     return True

@@ -12,9 +12,9 @@ def run():
     sg.set_options(font=('Arial Bold', 14))
     
     layout = [
-        [sg.Image(filename = 'Resources/Req.png', key='IMAGE1')],
-        [sg.Image(filename= 'Resources/Gen.png', key='IMAGE2')],
-        [sg.Image(filename= 'Resources/Set.png', key='IMAGE3')],
+        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Req.png', key='IMAGE1')],
+        [sg.Image(filename= 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Gen.png', key='IMAGE2')],
+        [sg.Image(filename= 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Set.png', key='IMAGE3')],
         [sg.Exit()]
     ]
     

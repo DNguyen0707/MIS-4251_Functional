@@ -13,7 +13,7 @@ def run():
     
     
     picture = [
-        [sg.Image(filename = 'Resources/Step1.png', key='IMAGE1')],
+        [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step1.png', key='IMAGE1')],
         [sg.Text(size=(40, 1))]
     ]
     

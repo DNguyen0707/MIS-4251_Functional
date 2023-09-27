@@ -10,7 +10,7 @@ from PIL import Image
 #debug mode toggle
 debugMode = False
 
-def run(BollardSN = '####-####'):
+def run(BollardSN = '#####-#####'):
     #Set font
     sg.set_options(font=('Arial Bold', 14))
     
@@ -24,7 +24,7 @@ def run(BollardSN = '####-####'):
     
     
     picture = [
-        [sg.Image(filename= 'Resources/Step9.png', key='IMAGE1')],
+        [sg.Image(filename= 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step9.png', key='IMAGE1')],
         [sg.Text(size=(10, 1))]
     ]
     
@@ -118,44 +118,43 @@ def run(BollardSN = '####-####'):
                 case "Snap1":
                     print("snap 1")
                     ima1 = pyautogui.screenshot()
-                    ima1.save(r'')
+                    ima1.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-1.png')
                     continue
                 case "Snap2":
                     print("snap 2")
                     ima2 = pyautogui.screenshot()
-                    ima2.save(r'')
+                    ima2.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-2.png')
                     continue
                 case "Snap3":
                     print("snap 3")
                     ima3 = pyautogui.screenshot()
-                    ima3.save(r'')
+                    ima3.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-3.png')
                     continue
                 case "SnapRAW":
                     print("snap raw")
                     imaRAW = pyautogui.screenshot()
-                    imaRAW.save(r'')
+                    imaRAW.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-RAW.png')
                     continue
                 case "View1":
                     print("view 1")
-                    view1 = Image.open(r'')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-1.png')
                     view1.show()
                     continue
                 case "View2":
                     print("view 2")
-                    view1 = Image.open(r'')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-2.png')
                     view1.show()
                     continue
                 case "View3":
                     print("view 3")
-                    view1 = Image.open(r'')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-3.png')
                     view1.show()
                     continue
                 case "ViewRAW":
                     print("view RAW")
-                    view1 = Image.open(r'')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-RAW.png')
                     view1.show()
                     continue
-
     
     
     
