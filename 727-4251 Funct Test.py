@@ -127,7 +127,7 @@ while True:
 
         # Test begin
 
-        # 0 Pre-test - Done
+        # 0 Pre-test
         import PreTest
 
         Test0Result = PreTest.run()
@@ -139,7 +139,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 1 Power On - Done
+        # 1 Power On
         import PowerOn
 
         Test1Result = PowerOn.run()
@@ -151,7 +151,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 2 Connectivity - Done
+        # 2 Connectivity
         import Connectivity
 
         Test2Result = Connectivity.run()
@@ -163,7 +163,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 3 SysFunc - Done
+        # 3 SysFunc
         import SysFunc
 
         Test3Result = SysFunc.run()
@@ -175,7 +175,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 4 MagSen - Done
+        # 4 MagSen
         import MagSen
 
         Test4Result = MagSen.run()
@@ -187,7 +187,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 5 Calibrate - Done
+        # 5 Calibrate
         import Calibrate
 
         Test5Result = Calibrate.run()
@@ -199,7 +199,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 6 Set Overlay - Done
+        # 6 Set Overlay
         import SetOverlay
 
         Test6Result = SetOverlay.run()
@@ -211,7 +211,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 7 Tripwire - Done
+        # 7 Tripwire
         import Tripwire
 
         Test7Result = Tripwire.run()
@@ -223,7 +223,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 8 Tamper Switch - Done
+        # 8 Tamper Switch
         import TamperSwitch
 
         Test8Result = TamperSwitch.run()
@@ -235,7 +235,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 9 MAG Coil - Semi-Done, need to add proper directory
+        # 9 MAG Coil
         import MAGCoil
 
         Test9Result = MAGCoil.run(BollardSN)
@@ -247,7 +247,7 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 10 Walk Setup - Not Tested
+        # 10 Walk Setup
         import WalkSetup
 
         Test10Result = WalkSetup.run()
@@ -259,10 +259,10 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 11 Control Walk - Not Tested
-        import ControlWalk
+        # 11 Walking Test
+        import WalkingTest
 
-        Test11Result = ControlWalk.run()
+        Test11Result = WalkingTest.run()
 
         if Test11Result:
             window["T11"].update("Pass")
@@ -271,22 +271,10 @@ while True:
             sg.popup_ok("Functional Test Failed")
             break
 
-        # 12 Magnet Walk - Not Tested
-        import MagnetWalk
-
-        Test12Result = MagnetWalk.run()
-
-        if Test12Result:
-            window["T12"].update("Pass")
-        else:
-            # fail
-            sg.popup_ok("Functional Test Failed")
-            break
-
-        # 13 Object Location -
+        # 13 Object Location
         import ObjectLocation
 
-        Test13Result = ObjectLocation.run()
+        Test13Result = ObjectLocation.run(BollardSN)
 
         if Test13Result:
             window["T13"].update("Pass")
@@ -310,8 +298,7 @@ while True:
         # 15 Post-test
         import PostTest
 
-        Test15Result = PostTest.run()
-
+        Test15Result = PostTest.run(systemSN, carrierSN, leftBollard, rightBollard, operator, date, controlWalk, magnetwalk, objectWalk)
         if Test15Result:
             window["T15"].update("Pass")
         else:

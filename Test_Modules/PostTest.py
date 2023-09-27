@@ -6,41 +6,79 @@ from pathlib import Path  # make folder
 import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
 
-def run():
-    #Set font
-    sg.set_options(font=('Arial Bold', 14))
+def run(systemSN, carrierSN, leftBollard, rightBollard, operator, date, controlWalk, magnetwalk, objectWalk):
     
-    picture = [
-        [sg.Image(filename = 'Resources/Step3.png', key='IMAGE1')],
-        [sg.Text(size=(10, 1))]
-    ]
+    #open excel file
+    wb = openpyxl.load_workbook('727-4251 DataSheet.xlsx')
+    ws = wb['Test Report']
     
-    instruction = [
-        
-    ]
+    # Write Information
+    ws['C3'] = systemSN
+    ws['C4'] = leftBollard
+    ws['C5'] = rightBollard
+    ws['J3'] = operator
+    ws['J5'] = date
     
-    layout = [
-        [sg.Column(picture)],
-        [sg.Column(instruction)],
-        [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
-    ]
+    # Write the Test record
+    ws['I10'] = "Yes"
+    ws['I11'] = "Yes"
+    ws['I12'] = "Yes"
+    ws['I13'] = "Yes"
+    ws['I14'] = "Yes"
+    ws['I15'] = "Yes"
+    ws['I16'] = "Yes"
+    ws['I17'] = "Yes"
+    ws['I18'] = "Yes"
+    ws['I19'] = "Yes"
+    ws['I20'] = "Yes"
+    ws['I21'] = "Yes"
+    ws['I22'] = "Yes"
+    ws['I23'] = "Yes"
+    ws['I24'] = "Yes"
+    ws['I25'] = "Yes"
+    ws['I26'] = "Yes"
+    ws['I27'] = "Yes"
+    ws['I28'] = "Yes"
+    ws['I29'] = "Yes"
+    ws['I30'] = "Yes"
+    ws['I31'] = "Yes"
+    ws['I32'] = "Yes"
+    ws['I33'] = "Yes"
+    ws['I34'] = "Yes"
+    ws['I35'] = "Yes"
+    ws['I36'] = "Yes"
+    ws['I37'] = "Yes"
+    ws['I38'] = "Yes"
+    ws['I39'] = "Yes"
+    ws['I40'] = "Yes"
+    ws['I41'] = "Yes"
+    ws['I42'] = "Yes"
+    ws['I43'] = "Yes"
+    ws['I44'] = "Yes"
+    ws['I45'] = controlWalk
+    ws['I46'] = magnetwalk
+    ws['I47'] = "Yes"
+    ws['I48'] = "Yes"
+    ws['I49'] = objectWalk
+    ws['I50'] = "Yes"
+    ws['I51'] = "Yes"
+    ws['I52'] = "Yes"
+    ws['I53'] = "Yes"
+    ws['I54'] = "Yes"
+    ws['I55'] = "Yes"
+    ws['I56'] = "Yes"
     
-    window = sg.Window('Test 4', layout, size=(800,300), enable_close_attempted_event=True)
+    #save excel file
+    wb.save(systemSN + " Datasheet.xlsx")
+    src_folder = r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Phat\MIS\Final Test\pythonProject\\"
+    src1_folder = r"C:\Users\qtest1\Downloads\Download\\"
+    src2_folder = r"Z:\05. Manufacturing\20. Test\400 records\Test Records\727\727-4251\\"
+    dst_folder = r"Z:\05. Manufacturing\20. Test\400 records\Test Records\727\727-4251\Bollard " + systemSN + "\\"
+    file_name = systemSN + " Datasheet.xlsx"
     
-    
-    while True:
-        event, values = window.read()
-        
-        if event == sg.WIN_CLOSED or event == 'Exit':
-            return False
-        elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
-            return False
-        elif event == "Fail":
-            return False
-        elif event == "Pass":
-            print('yahallo')
-            window.close()
-            break
+    shutil.move(src1_folder, dst_folder)
+    shutil.move(src2_folder + carrierSN, dst_folder)
+    shutil.move(src_folder + file_name, dst_folder)
     
     return True
 

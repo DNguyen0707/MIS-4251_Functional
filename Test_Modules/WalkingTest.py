@@ -12,12 +12,16 @@ def run():
     
     picture = [
         [sg.Image(filename = 'Resources/Step11.png', key='IMAGE1')],
+        [sg.Image(filename = 'Resources/Step12.png', key='IMAGE2')],
         [sg.Text(size=(10, 1))]
     ]
     
     instruction = [
-        [sg.Text('Step 11.5 System alerted on control walk. (expect 0/10)')],
+        [sg.Text('Step 11.5 System alerted on control walk. (expect 1 or lower)')],
         [sg.InputText(size=(20,1), key="ControlWalk")],
+        
+        [sg.Text('Step 12.3 System alerted on magnet Detection Walk-Test. (expect 9 or higher)')],
+        [sg.InputText(size=(20,1), key="MagnetWalk")],
     ]
     
     layout = [
@@ -37,11 +41,10 @@ def run():
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
         elif event == "Continue":
-            if (values["ControlWalk"] > 1):
-                window.close()
+            if values["ControlWalk"] > 1 and values["MagnetWalk"] < 9:
                 return False
             else:
-                print("Yahallo!")
+                window.close()
                 break
     
     return True
