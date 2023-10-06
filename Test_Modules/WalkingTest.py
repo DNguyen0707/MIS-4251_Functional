@@ -10,6 +10,10 @@ def run():
     #Set font
     sg.set_options(font=('Arial Bold', 14))
     
+    #global Variable
+    ControlWalk = 0
+    MagnetWalk = 0
+    
     picture = [
         ##[sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step11.png', key='IMAGE1')],
         ##[sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step12.png', key='IMAGE2')],
@@ -44,10 +48,12 @@ def run():
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
         elif event == "Continue":
+            ControlWalk = values["ControlWalk"]
+            MagnetWalk = values["MagnetWalk"]
             window.close()
             break
     
-    return values["ControlWalk"], values["MagnetWalk"]
+    return ControlWalk, MagnetWalk
 
 if __name__ == "__main__":
     print("Debug Mode")

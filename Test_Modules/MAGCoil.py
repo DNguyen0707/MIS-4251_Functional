@@ -19,8 +19,8 @@ def run(BollardSN = '#####-#####'):
         Path("C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial").mkdir(parents=True, exist_ok=True)
         Path("C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/Download").mkdir(parents=True, exist_ok=True)
     else:
-        Path("Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard" + BollardSN).mkdir(parents=True, exist_ok=True)
-        Path("C:/Users/qtest1/Downloads/Download").mkdir(parents=True, exist_ok=True)
+        Path("Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard " + BollardSN).mkdir(parents=True, exist_ok=True)
+        Path("C:/Users/qtest1/Downloads/Download").mkdir(parents=True, exist_ok=True) # theres something wrong with this
     
     
     picture = [
@@ -118,41 +118,41 @@ def run(BollardSN = '#####-#####'):
                 case "Snap1":
                     print("snap 1")
                     ima1 = pyautogui.screenshot()
-                    ima1.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-1.png')
+                    ima1.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN + '-1.png')
                     continue
                 case "Snap2":
                     print("snap 2")
                     ima2 = pyautogui.screenshot()
-                    ima2.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-2.png')
+                    ima2.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-2.png')
                     continue
                 case "Snap3":
                     print("snap 3")
                     ima3 = pyautogui.screenshot()
-                    ima3.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-3.png')
+                    ima3.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-3.png')
                     continue
                 case "SnapRAW":
                     print("snap raw")
                     imaRAW = pyautogui.screenshot()
-                    imaRAW.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-RAW.png')
+                    imaRAW.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-RAW.png')
                     continue
                 case "View1":
                     print("view 1")
-                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-1.png')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-1.png')
                     view1.show()
                     continue
                 case "View2":
                     print("view 2")
-                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-2.png')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-2.png')
                     view1.show()
                     continue
                 case "View3":
                     print("view 3")
-                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-3.png')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-3.png')
                     view1.show()
                     continue
                 case "ViewRAW":
                     print("view RAW")
-                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '-RAW.png')
+                    view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-RAW.png')
                     view1.show()
                     continue
     

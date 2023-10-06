@@ -263,8 +263,8 @@ while True:
 
         Test11Result = WalkingTest.run()
 
-        controlWalk = Test11Result[0]
-        magnetwalk = Test11Result[1]
+        controlWalk = int(Test11Result[0])
+        magnetwalk = int(Test11Result[1])
 
         if controlWalk <= 1 and magnetwalk >= 9:
             window["T11"].update("Pass")
@@ -277,7 +277,7 @@ while True:
         import ObjectLocation
 
         Test13Result = ObjectLocation.run(BollardSN)
-        objectWalk = Test13Result[0]
+        objectWalk = int(est13Result[0])
 
         if objectWalk >= 9:
             window["T13"].update("Pass")
