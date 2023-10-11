@@ -108,7 +108,11 @@ while True:
         rCarrierSN = values["RC"]
 
         BollardSN = lBollardSN + "-" + rBollardSN
-        CarrierSN = lCarrierSN + "-" + rCarrierSN
+        
+        if int(lCarrierSN) < int(rCarrierSN):
+            CarrierSN = str(lCarrierSN) + "-" + str(rCarrierSN)
+        else:
+            CarrierSN = str(rCarrierSN) + "-" + str(lCarrierSN)
 
         window["SS"].update(BollardSN)
         window["CS"].update(CarrierSN)
@@ -265,6 +269,7 @@ while True:
 
         controlWalk = int(Test11Result[0])
         magnetwalk = int(Test11Result[1])
+        print(magnetwalk)
 
         if controlWalk <= 1 and magnetwalk >= 9:
             window["T11"].update("Pass")
@@ -277,7 +282,8 @@ while True:
         import ObjectLocation
 
         Test13Result = ObjectLocation.run(BollardSN)
-        objectWalk = int(est13Result[0])
+        objectWalk = int(Test13Result[0] + Test13Result[1])
+        print(objectWalk)
 
         if objectWalk >= 9:
             window["T13"].update("Pass")

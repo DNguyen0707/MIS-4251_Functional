@@ -11,6 +11,9 @@ def run(BollardSN = '####-####'):
     #Set font
     sg.set_options(font=('Arial Bold', 14))
     
+    #Global variable
+    objectWalk = 0
+    
     #Set Logging Info
     logName = datetime.now().strftime("%Y.%m.%d") + "_object_location_Walk_" + BollardSN
     systemNumber = BollardSN
@@ -37,6 +40,9 @@ def run(BollardSN = '####-####'):
         [sg.Text('Test Number: ')],
         [sg.InputText(testNumber, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="testNumber")],
         
+
+    ]
+    logging2 = [
         [sg.Text('Location: ')],
         [sg.InputText(location, size=(20,1), use_readonly_for_disable=True, disabled=True), sg.Button("Copy", key="location")],
         
@@ -49,7 +55,7 @@ def run(BollardSN = '####-####'):
     
     button1 = [
         [sg.Button("Continue"), sg.Exit()],
-        ##[sg.Exit()]
+        
     ]
     
     empty = [
@@ -59,10 +65,11 @@ def run(BollardSN = '####-####'):
     layout1 = [
         [sg.Column(picture1)],
         [sg.Column(instruction1)],
-        [sg.Column(logging1), sg.Column(empty), sg.Column(button1)]
+        [sg.Column(logging1), sg.Column(empty), sg.Column(logging2)],
+        [sg.Column(button1)]
     ]
     
-    window1 = sg.Window('Test 13', layout1, size=(900,1050), enable_close_attempted_event=True)
+    window1 = sg.Window('Test 13', layout1, size=(900,900), enable_close_attempted_event=True)
     
     
     while True:
@@ -120,11 +127,12 @@ def run(BollardSN = '####-####'):
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
         elif event == "Continue":
+            objectWalk = values["ObjectWalk"]
             window2.close()
             break
-                
-    
-    return values["ObjectWalk"]
+        
+    print(objectWalk)
+    return objectWalk
 
 if __name__ == "__main__":
     print("Debug Mode")
