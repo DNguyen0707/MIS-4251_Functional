@@ -1,9 +1,4 @@
-from datetime import datetime  # to get today date
-import shutil  # to move files
-import openpyxl  # edit file excel
 import PySimpleGUI as sg  # GUI window
-from pathlib import Path  # make folder
-import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
 
 def run():
@@ -25,7 +20,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 7', layout, size=(750,550), enable_close_attempted_event=True)
+    window = sg.Window('Test 7 - Tripwire', layout, size=(750,550), enable_close_attempted_event=True)
     
     
     while True:
@@ -38,7 +33,6 @@ def run():
         elif event == "Fail":
             return False
         elif event == "Pass":
-            print('yahallo')
             window.close()
             break
     

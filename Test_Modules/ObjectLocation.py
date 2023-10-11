@@ -1,9 +1,6 @@
 from datetime import datetime  # to get today date
-import shutil  # to move files
-import openpyxl  # edit file excel
 import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
-import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
 import pyperclip
 
@@ -69,7 +66,7 @@ def run(BollardSN = '####-####'):
         [sg.Column(button1)]
     ]
     
-    window1 = sg.Window('Test 13', layout1, size=(900,900), enable_close_attempted_event=True)
+    window1 = sg.Window('Test 13 - Filling Log Data', layout1, size=(900,900), enable_close_attempted_event=True)
     
     
     while True:
@@ -117,7 +114,7 @@ def run(BollardSN = '####-####'):
         [sg.Button("Continue"), sg.Exit()]
     ]
     
-    window2 = sg.Window('Test 13', layout2, size=(900,1050), enable_close_attempted_event=True)
+    window2 = sg.Window('Test 13 - Object Walk', layout2, size=(900,1050), enable_close_attempted_event=True)
     
     while True:
         event, values = window2.read()

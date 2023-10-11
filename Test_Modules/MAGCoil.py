@@ -1,9 +1,5 @@
-from datetime import datetime  # to get today date
-import shutil  # to move files
-import openpyxl  # edit file excel
 import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
-import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
 from PIL import Image
 
@@ -20,8 +16,7 @@ def run(BollardSN = '#####-#####'):
         Path("C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/Download").mkdir(parents=True, exist_ok=True)
     else:
         Path("Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard " + BollardSN).mkdir(parents=True, exist_ok=True)
-        Path("C:/Users/qtest1/Downloads/Download").mkdir(parents=True, exist_ok=True) # theres something wrong with this
-    
+        Path("C:/Users/qtest1/Downloads/Download").mkdir(parents=True, exist_ok=True)
     
     picture = [
         [sg.Image(filename= 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step9.png', key='IMAGE1')],
@@ -54,7 +49,7 @@ def run(BollardSN = '#####-#####'):
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 9', layout, size=(1000,680), enable_close_attempted_event=True)
+    window = sg.Window('Test 9 - MAG Coil', layout, size=(1000,680), enable_close_attempted_event=True)
     
     while True:
         event, values = window.read()
@@ -66,99 +61,82 @@ def run(BollardSN = '#####-#####'):
         elif event == "Fail":
             return False
         elif event == "Pass":
-            print('yahallo')
             window.close()
             break
         
+        # This is only for debugging, change the directory as needed
         if debugMode:
             match event:
                 case "Snap1":
-                    print("snap 1")
                     ima1 = pyautogui.screenshot()
                     ima1.save(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-1.png')
                     continue
                 case "Snap2":
-                    print("snap 2")
                     ima2 = pyautogui.screenshot()
                     ima2.save(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-2.png')
                     continue
                 case "Snap3":
-                    print("snap 3")
                     ima3 = pyautogui.screenshot()
                     ima3.save(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-3.png')
                     continue
                 case "SnapRAW":
-                    print("snap raw")
                     imaRAW = pyautogui.screenshot()
                     imaRAW.save(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-RAW.png')
                     continue
                 case "View1":
-                    print("view 1")
                     view1 = Image.open(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-1.png')
                     view1.show()
                     continue
                 case "View2":
-                    print("view 2")
                     view1 = Image.open(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-2.png')
                     view1.show()
                     continue
                 case "View3":
-                    print("view 3")
                     view1 = Image.open(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-3.png')
                     view1.show()
                     continue
                 case "ViewRAW":
-                    print("view RAW")
                     view1 = Image.open(r'C:/Users/dain/Documents/Github/MIS-4251_Func_Test/TestTrial/image-RAW.png')
                     view1.show()
                     continue
+                
+        # Actual test, DO NOT change the directory unless required
         else:
-            #add directory after
             match event:
                 case "Snap1":
-                    print("snap 1")
                     ima1 = pyautogui.screenshot()
                     ima1.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN + '-1.png')
                     continue
                 case "Snap2":
-                    print("snap 2")
                     ima2 = pyautogui.screenshot()
                     ima2.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-2.png')
                     continue
                 case "Snap3":
-                    print("snap 3")
                     ima3 = pyautogui.screenshot()
                     ima3.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-3.png')
                     continue
                 case "SnapRAW":
-                    print("snap raw")
                     imaRAW = pyautogui.screenshot()
                     imaRAW.save(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-RAW.png')
                     continue
                 case "View1":
-                    print("view 1")
                     view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-1.png')
                     view1.show()
                     continue
                 case "View2":
-                    print("view 2")
                     view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-2.png')
                     view1.show()
                     continue
                 case "View3":
-                    print("view 3")
                     view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-3.png')
                     view1.show()
                     continue
                 case "ViewRAW":
-                    print("view RAW")
                     view1 = Image.open(r'Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/Bollard ' + BollardSN + '/' + BollardSN +  '-RAW.png')
                     view1.show()
                     continue
     
-    
-    
-    
+
     return True
 
 if __name__ == "__main__":

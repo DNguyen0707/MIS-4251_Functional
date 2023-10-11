@@ -1,9 +1,4 @@
-from datetime import datetime  # to get today date
-import shutil  # to move files
-import openpyxl  # edit file excel
 import PySimpleGUI as sg  # GUI window
-from pathlib import Path  # make folder
-import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
 
 def run():
@@ -14,10 +9,7 @@ def run():
     ControlWalk = 0
     MagnetWalk = 0
     
-    picture = [
-        ##[sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step11.png', key='IMAGE1')],
-        ##[sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step12.png', key='IMAGE2')],
-        
+    picture = [        
         [sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step11.png', key='IMAGE1'),
          sg.Image(filename = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step12.png', key='IMAGE2')],
         [sg.Text(size=(10, 1))]
@@ -37,7 +29,7 @@ def run():
         [sg.Button("Continue"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 11', layout, size=(1550,750), enable_close_attempted_event=True)
+    window = sg.Window('Test 11 - Walking Test', layout, size=(1550,750), enable_close_attempted_event=True)
     
     
     while True:

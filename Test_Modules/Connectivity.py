@@ -1,6 +1,4 @@
 from datetime import datetime  # to get today date
-import shutil  # to move files
-import openpyxl  # edit file excel
 import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
 import webbrowser  # open website
@@ -30,7 +28,7 @@ def run():
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 2', layout, size=(1050,350), enable_close_attempted_event=True)
+    window = sg.Window('Test 2 - Connectivity', layout, size=(1050,350), enable_close_attempted_event=True)
     
     
     while True:
@@ -44,7 +42,6 @@ def run():
             return False
         elif event == "Pass":
             IP = values['IPAddress']
-            print(IP)
             window.close()
             webbrowser.open(IP)
             break

@@ -1,9 +1,5 @@
-from datetime import datetime  # to get today date
 import shutil  # to move files
 import openpyxl  # edit file excel
-import PySimpleGUI as sg  # GUI window
-from pathlib import Path  # make folder
-import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
 
 def run(systemSN = 0, carrierSN = 0, leftBollard=0, rightBollard=0, operator=0, date=0, controlWalk=0, magnetwalk=0, objectWalk=0):

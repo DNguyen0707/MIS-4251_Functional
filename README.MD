@@ -10,9 +10,6 @@ pip install -r requirements.txt
 ### How to run
 Double click on `727-4251 Funct Test.py` to run
 
-### Current Known Bug
-- Does not run by itself without VSCode, problem with filename (cant check picture directory) | Once finish, change the image directory file into it proper name
-
 
 ### Future Update?
 - [ ] Automate using Autoclicker/OCR

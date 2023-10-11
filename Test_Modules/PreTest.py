@@ -1,9 +1,4 @@
-from datetime import datetime  # to get today date
-import shutil  # to move files
-import openpyxl  # edit file excel
 import PySimpleGUI as sg  # GUI window
-from pathlib import Path  # make folder
-import webbrowser  # open website
 import pyautogui as pyautogui  # to screenshot monitor
 
 def run():
@@ -38,7 +33,6 @@ def run():
         
         if pre == "Yes":
             break
-            #return True
         else:
             return False
     
