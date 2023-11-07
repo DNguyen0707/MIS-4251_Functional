@@ -99,7 +99,7 @@ while True:
             break
         elif (lBollardSN == "" or lCarrierSN == "" or rBollardSN == "" or rCarrierSN == ""):
             sg.popup_no_buttons("Missing information, please fill them")
-            break
+            continue
 
         # Test begin
 
@@ -111,7 +111,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 1 Power On
         import PowerOn
@@ -121,7 +121,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 2 Connectivity
         import Connectivity
@@ -131,7 +131,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 3 SysFunc
         import SysFunc
@@ -141,7 +141,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 4 MagSen
         import MagSen
@@ -151,7 +151,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 5 Calibrate
         import Calibrate
@@ -161,7 +161,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 6 Set Overlay
         import SetOverlay
@@ -171,7 +171,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 7 Tripwire
         import Tripwire
@@ -181,7 +181,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 8 Tamper Switch
         import TamperSwitch
@@ -191,7 +191,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 9 MAG Coil
         import MAGCoil
@@ -201,7 +201,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 10 Walk Setup
         import WalkSetup
@@ -211,7 +211,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 11 Walking Test
         import WalkingTest
@@ -224,7 +224,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 13 Object Location
         import ObjectLocation
@@ -236,7 +236,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 14 Data Cleanup
         import DataCleanup
@@ -246,7 +246,7 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
 
         # 15 Post-test
         import PostTest
@@ -266,6 +266,6 @@ while True:
         else:
             # fail
             sg.popup_ok("Functional Test Failed")
-            break
+            continue
         
         sg.popup_ok("Functional Test Passed")
