@@ -5,6 +5,7 @@ from datetime import datetime  # to get today date
 import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
 import pyautogui as pyautogui  # to screenshot monitor
+import operator
 
 # Import test module
 import sys
@@ -78,6 +79,23 @@ while True:
         lCarrierSN = values["LC"]
         rBollardSN = values["RB"]
         rCarrierSN = values["RC"]
+        
+        
+        if (len(lBollardSN) == 12):
+            #remove extras char
+            try:
+                lBollardSN = operator.getitem(lBollardSN, slice(6, 12))
+                lCarrierSN = operator.getitem(lCarrierSN, slice(6, 12))
+                rBollardSN = operator.getitem(rBollardSN, slice(6, 12))
+                rCarrierSN = operator.getitem(rCarrierSN, slice(6, 12))
+            except:
+                sg.popup_ok("Please rescan the barcode")
+        
+        #update
+        window["LB"].update(lBollardSN)
+        window["LC"].update(lCarrierSN)
+        window["RB"].update(rBollardSN)
+        window["RC"].update(rCarrierSN)
 
         # Save bollard value (LEFT-RIGHT)
         BollardSN = lBollardSN + "-" + rBollardSN
