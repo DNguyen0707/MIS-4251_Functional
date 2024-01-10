@@ -2,7 +2,7 @@ import shutil  # to move files
 import openpyxl  # edit file excel
 import pyautogui as pyautogui  # to screenshot monitor
 
-def run(systemSN = 0, carrierSN = 0, leftBollard=0, rightBollard=0, operator=0, date=0, controlWalk=0, magnetwalk=0, objectWalk=0):
+def run(systemSN = 0, carrierSN = 0, leftBollard=0, rightBollard=0, operator=0, date=0, controlWalk=0, magnetwalk=0, objectWalk=0, EthernetMAC = "", WifiMAC = ""):
     
     #open excel file
     templatePath = 'Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/727-4251 DataSheet.xlsx'
@@ -14,7 +14,10 @@ def run(systemSN = 0, carrierSN = 0, leftBollard=0, rightBollard=0, operator=0, 
     ws['C4'] = leftBollard
     ws['C5'] = rightBollard
     ws['J3'] = operator
-    ws['J5'] = date
+    ws['J6'] = date
+    ws['J4'] = str(EthernetMAC)
+    ws['J5'] = str(WifiMAC)
+    
     
     # Write the Test record
     ws['I10'] = "Yes"

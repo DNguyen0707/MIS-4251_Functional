@@ -2,6 +2,7 @@ from datetime import datetime  # to get today date
 import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
 import pyautogui as pyautogui  # to screenshot monitor
+import pyperclip
 
 def run():
     #Set font
@@ -16,19 +17,27 @@ def run():
         [sg.Text('1. Go to Operator->Alarm History and click "Clear All Alarms and Reset Tripwire Count.\n     Type "Qualitel" in the popup and press Enter')],
         [sg.Text('2. Verify Detection Threshold is set to Small (500).')],
         [sg.Text('3. Verify Ethernet IP setting are set to DHCP and not Static.')],
-        [sg.Text('4. Verify Wi-Fi IP setting are set to DHCP (not Static), or not connected.')],
-        [sg.Text('5. Scroll down on the Sysadmin page and click "SHUTDOWN"')],
-        [sg.Text('6. Disassemble everything')]
+        [sg.Text('4. Check Ethernet Settings and record down the MAC address')],
+        [sg.Text('5. Check Wifi Settings and record down the MAC address')],
+        [sg.Text('6. Verify Wi-Fi IP setting are set to DHCP (not Static), or not connected.')],
+        [sg.Text('7. Scroll down on the Sysadmin page and click "SHUTDOWN"')],
+        [sg.Text('8. Disassemble everything')]
     ]
     
     layout = [
         [sg.Column(picture)],
         [sg.Column(instruction)],
+        [sg.Text(size=(10, 1))],
+        [sg.Text("Ethernet MAC Address: "), sg.InputText(size=(20,1), key="EthernetMAC"), sg.Button("Paste", key="EthernetCopy")],
+        [sg.Text("Wifi MAC Address: "), sg.InputText(size=(20,1), key="WifiMAC"), sg.Button("Paste", key="WifiCopy")],
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 4 - Data Cleanup', layout, size=(850,800), enable_close_attempted_event=True)
+    window = sg.Window('Test 4 - Data Cleanup', layout, size=(850,1000), enable_close_attempted_event=True)
     
+    #return variable
+    EMAC = ""
+    WMAC = ""
     
     while True:
         event, values = window.read()
@@ -37,13 +46,20 @@ def run():
             return False
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
+        elif event == "EthernetCopy":
+            EMAC = pyperclip.paste()
+            window["EthernetMAC"].update(EMAC)
+        elif event == "WifiCopy":
+            WMAC = pyperclip.paste()
+            window["WifiMAC"].update(WMAC)
+            
         elif event == "Fail":
             return False
         elif event == "Pass":
             window.close()
             break
     
-    return True
+    return EMAC, WMAC
 
 if __name__ == "__main__":
     print("Debug Mode")

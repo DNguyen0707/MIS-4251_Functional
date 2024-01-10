@@ -236,7 +236,6 @@ while True:
         Test11Result = WalkingTest.run()
         controlWalk = int(Test11Result[0])
         magnetwalk = int(Test11Result[1])
-        print(magnetwalk)
         if controlWalk <= 1 and magnetwalk >= 9:
             window["T11"].update("Pass")
         else:
@@ -255,10 +254,15 @@ while True:
             # fail
             sg.popup_ok("Functional Test Failed")
             continue
+        
 
         # 14 Data Cleanup
         import DataCleanup
         Test14Result = DataCleanup.run()
+        
+        EthernetMAC = Test14Result[0]
+        WifiMAC = Test14Result[1]
+        
         if Test14Result:
             window["T14"].update("Pass")
         else:
@@ -278,6 +282,8 @@ while True:
             controlWalk,
             magnetwalk,
             objectWalk,
+            EthernetMAC,
+            WifiMAC,
         )
         if Test15Result:
             window["T15"].update("Pass")
