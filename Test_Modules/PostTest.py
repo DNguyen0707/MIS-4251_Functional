@@ -15,8 +15,8 @@ def run(systemSN = 0, carrierSN = 0, leftBollard=0, rightBollard=0, operator=0, 
     ws['C5'] = rightBollard
     ws['J3'] = operator
     ws['J6'] = date
-    ws['J4'] = str(EthernetMAC)
-    ws['J5'] = str(WifiMAC)
+    ws['J4'] = EthernetMAC
+    ws['J5'] = WifiMAC
     
     
     # Write the Test record

@@ -28,12 +28,12 @@ def run():
         [sg.Column(picture)],
         [sg.Column(instruction)],
         [sg.Text(size=(10, 1))],
-        [sg.Text("Ethernet MAC Address: "), sg.InputText(size=(20,1), key="EthernetMAC"), sg.Button("Paste", key="EthernetCopy")],
-        [sg.Text("Wifi MAC Address: "), sg.InputText(size=(20,1), key="WifiMAC"), sg.Button("Paste", key="WifiCopy")],
+        [sg.Text("Ethernet MAC Address: "), sg.InputText(size=(20,1), key="EthernetMAC"), sg.Button("Help", key="EthernetHelp")],
+        [sg.Text("Wifi MAC Address: "), sg.InputText(size=(20,1), key="WifiMAC"), sg.Button("Help", key="WifiHelp")],
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 4 - Data Cleanup', layout, size=(850,1000), enable_close_attempted_event=True)
+    window = sg.Window('Test 4 - Data Cleanup', layout, size=(850,900), enable_close_attempted_event=True)
     
     #return variable
     EMAC = ""
@@ -46,18 +46,22 @@ def run():
             return False
         elif event == sg.WINDOW_CLOSE_ATTEMPTED_EVENT:
             return False
-        elif event == "EthernetCopy":
-            EMAC = pyperclip.paste()
-            window["EthernetMAC"].update(EMAC)
-        elif event == "WifiCopy":
-            WMAC = pyperclip.paste()
-            window["WifiMAC"].update(WMAC)
+        elif event == "EthernetHelp":
+            sg.popup_ok(image='Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step15-1.png')
+        elif event == "WifiHelp":
+            sg.popup_ok(image='Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step15-2.png')
             
         elif event == "Fail":
             return False
         elif event == "Pass":
+            
+            EMAC = values["EthernetMAC"]
+            WMAC = values["WifiMAC"]
             window.close()
             break
+    
+    print (EMAC)
+    print (WMAC)
     
     return EMAC, WMAC
 
