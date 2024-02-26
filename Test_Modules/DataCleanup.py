@@ -3,8 +3,9 @@ import PySimpleGUI as sg  # GUI window
 from pathlib import Path  # make folder
 import pyautogui as pyautogui  # to screenshot monitor
 import pyperclip
+import os
 
-def run():
+def run(carrSN = "000000-000000"):
     #Set font
     sg.set_options(font=('Arial Bold', 14))
     
@@ -28,12 +29,14 @@ def run():
         [sg.Column(picture)],
         [sg.Column(instruction)],
         [sg.Text(size=(10, 1))],
+        [sg.Text("Click the button to open the carrier's folder, and look for the primary carrier's config file"), sg.Button("Open")],
+        [sg.Text("Remember to close the text file before continuing")],
         [sg.Text("Ethernet MAC Address: "), sg.InputText(size=(20,1), key="EthernetMAC"), sg.Button("Help", key="EthernetHelp")],
         [sg.Text("Wifi MAC Address: "), sg.InputText(size=(20,1), key="WifiMAC"), sg.Button("Help", key="WifiHelp")],
         [sg.Button("Pass"), sg.Button("Fail"), sg.Exit()]
     ]
     
-    window = sg.Window('Test 4 - Data Cleanup', layout, size=(850,900), enable_close_attempted_event=True)
+    window = sg.Window('Test 4 - Data Cleanup', layout, size=(900,970), enable_close_attempted_event=True)
     
     #return variable
     EMAC = ""
@@ -50,7 +53,10 @@ def run():
             sg.popup_ok(image='Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step15-1.png')
         elif event == "WifiHelp":
             sg.popup_ok(image='Z:/05. Manufacturing/60. Uncontrolled/Troubleshoot/Dai/MIS Program/MIS-4251_Func_Test/Resources/Step15-2.png')
-            
+        elif event == "Open":
+            path = "Z:/05. Manufacturing/20. Test/400 records/Test Records/727/727-4251/" + str(carrSN)
+            path = os.path.realpath(path)
+            os.startfile(path)
         elif event == "Fail":
             return False
         elif event == "Pass":
