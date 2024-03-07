@@ -71,13 +71,15 @@ def run(systemSN = 0, carrierSN = 0, leftBollard=0, rightBollard=0, operator=0, 
     #save excel file
     wb.save(str(systemSN) + " Datasheet.xlsx")
     src_folder = r"Z:\05. Manufacturing\60. Uncontrolled\Troubleshoot\Dai\MIS Program\MIS-4251_Func_Test\\"
-    src1_folder = r"C:\Users\qtest1\Downloads\Download\\"
+    src1_folder = r"C:\Users\qtest1\Downloads\Download"
     src2_folder = r"Z:\05. Manufacturing\20. Test\400 records\Test Records\727\727-4251\\"
     dst_folder = r"Z:\05. Manufacturing\20. Test\400 records\Test Records\727\727-4251\Bollard " + str(systemSN) + "\\"
     file_name = str(systemSN) + " Datasheet.xlsx"
     
+    carrSN = str(carrierSN)
+    
     shutil.move(src1_folder, dst_folder)
-    shutil.move(src2_folder + carrierSN, dst_folder)
+    shutil.move(src2_folder + carrSN, dst_folder)
     shutil.move(src_folder + file_name, dst_folder)
     
     return True
